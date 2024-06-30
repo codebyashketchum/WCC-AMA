@@ -1,9 +1,7 @@
-from typing import Dict, List
-
-from langchain.schema import Document
+from typing import List, Dict
+from langchain_community.document_loaders import TextLoader, PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import PyPDFLoader, TextLoader
-
+from langchain.schema import Document
 
 class DocumentProcessor:
     def __init__(self):
@@ -17,10 +15,10 @@ class DocumentProcessor:
         )
 
     def load_document(self, file_path: str) -> List[Document]:
-        file_extension = file_path.split(".")[-1].lower()
+        file_extension = file_path.split('.')[-1].lower()
         if file_extension not in self.loaders:
             raise ValueError(f"Unsupported file type: {file_extension}")
-
+        
         loader = self.loaders[file_extension](file_path)
         return loader.load()
 

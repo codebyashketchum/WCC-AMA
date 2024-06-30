@@ -11,6 +11,9 @@ langchain-community = "*"
 sentence-transformers = "*"
 langchain-huggingface = "*"
 pytest = "*"
+matplotlib = "*"
+pypdf2 = "*"
+pypdf = "*"
 
 [dev-packages]
 pytest = "*"
